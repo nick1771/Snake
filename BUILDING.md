@@ -28,11 +28,6 @@ flags to make it behave properly. See the `flags-windows` preset in the
 [CMakePresets.json](CMakePresets.json) file for the flags and with what
 variable to provide them to CMake during configuration.
 
-### Building on Apple Silicon
-
-CMake supports building on Apple Silicon properly since 3.20.1. Make sure you
-have the [latest version][1] installed.
-
 ## Install
 
 This project doesn't require any special command-line flags to install to keep

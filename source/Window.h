@@ -12,41 +12,41 @@
 #include "Event.h"
 
 struct WindowProperties {
-	std::string title = "Window";
+    std::string title = "Window";
 
-	i32 width = 800;
-	i32 height = 600;
+    i32 width = 800;
+    i32 height = 600;
 
-	bool isVisible = true;
+    bool isVisible = true;
 };
 
 namespace detail {
 
-	struct WindowState {
-		std::queue<Event> pendingEvents{};
-		WindowProperties properties{};
-		bool isCloseRequested{};
-	};
+    struct WindowState {
+        std::queue<Event> pendingEvents{};
+        WindowProperties properties{};
+        bool isCloseRequested{};
+    };
 }
 
 class Window {
 public:
-	Window(const WindowProperties& properties);
+    Window(const WindowProperties& properties);
 
-	void destroy();
-	void blit(const u8* data);
+    void destroy();
+    void blit(const u8* data);
 
-	void setVisible(bool isVisible);
-	void setSize(i32 width, i32 height);
+    void setVisible(bool isVisible);
+    void setSize(i32 width, i32 height);
 
-	i32 getWidth() const;
-	i32 getHeight() const;
-	bool getEvent(Event& event);
+    i32 getWidth() const;
+    i32 getHeight() const;
+    bool getEvent(Event& event);
 
-	bool isCloseRequested() const;
+    bool isCloseRequested() const;
 private:
-	void _pollEvents();
+    void _pollEvents();
 
-	detail::WindowState _state{};
-	HWND _handle{};
+    detail::WindowState _state{};
+    HWND _handle{};
 };
